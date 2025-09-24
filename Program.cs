@@ -7,24 +7,12 @@ namespace GallowsGAme
         static int position = 0;
         static string[] options = {"Játék", "Kilépés"};
         static bool run = true;
+        
         static void Main(string[] args)
         {
-            /*
-            string heart = "■";
-            string heartLost = "□";
-            string[] words = ["asztal", "szék", "lámpa", "ajtó", "ablak", "toll", "füzet", "ceruza", "könyv", "kulcs","óra", "telefon", "tükör","számítógép", "egér", "klaviatúra", "képernyő", "hűtő", "tűzhely", "kanapé","gyümölcs", "zöldség", "kenyér", "tej", "víz", "kávé", "cukor", "só", "bors", "hús","hal", "tojás", "sajt", "vaj", "lekvár", "méz", "csokoládé", "palacsinta", "pogácsa", "kalács","város", "falu", "utca", "tér", "park", "erdő", "hegy", "tó", "folyó", "tenger"];
-            bool run = true;
-            while (run)
-            {
-                Console.WriteLine("asd");
-                Random randomGenerator = new Random();
-                int randomNumber = randomGenerator.Next(1, 50);
-                Console.WriteLine(randomNumber);
-            }
-            */
-            
             RunMenu();
         }
+        
         static void RunMenu()
         {
             DrawMenu();
@@ -42,10 +30,11 @@ namespace GallowsGAme
                 }
                 else if (pressedKey.Key == ConsoleKey.Enter)
                 {
-                    ArrowEnter();
+                    Enter();
                 }
             } while (run);
         }
+        
         static void DrawMenu()
         {
             Console.Clear();
@@ -54,38 +43,132 @@ namespace GallowsGAme
             {
                 Console.WriteLine($"{options[a]}");
             }
-            Console.SetCursorPosition(10, 0);
+            Console.SetCursorPosition(options[position].Length + 2, 0);
             Console.Write("●");
         }
+        
         static void ArrowUp()
         {
             if (position != 0)
             {
-                Console.SetCursorPosition(10, position);
+                Console.SetCursorPosition(options[position].Length + 2, position);
                 position--;
                 Console.Write(" ", 1);
-                Console.SetCursorPosition(10, position);
+                Console.SetCursorPosition(options[position].Length + 2, position);
                 Console.WriteLine("●");
             }
-            
-        }
-        static void ArrowDown()
-        {
-            if (position != options.Length-1)
-            {
-                Console.SetCursorPosition(10, position);
-                position++;
-                Console.Write(" ", 1);
-                Console.SetCursorPosition(10, position);
-                Console.WriteLine("●");
-            }
-            
-        }
-        static void ArrowEnter()
-        {
-            
         }
         
+        static void ArrowDown()
+        {
+            if (position != options.Length - 1)
+            {
+                Console.SetCursorPosition(options[position].Length + 2, position);
+                position++;
+                Console.Write(" ", 1);
+                Console.SetCursorPosition(options[position].Length + 2, position);
+                Console.WriteLine("●");
+            }
+        }
+        
+        static void Enter()
+        {
+            switch (position)
+            {
+                case 0:
+                    Console.Clear();
+                    Game();
+                    break;
+                case 1:
+                    Console.Clear();
+                    Console.CursorVisible = true;
+                    run = false;
+                    break;
+            }
+        }
+        static void Game()
+        {
+            string heart = "■";
+            string heartLost = "□";
+            string life = "Élet:";
+            int lineNullLength = life.Length;
+            int lineOneLength = 0;
+            int heartCounter = 10;
+            Random randomGenerator = new Random();
+            int randomNumber = randomGenerator.Next(1, 50);
+            
+            string[] words = ["asztal", "szék", "lámpa", "ajtó", "ablak", "toll", "füzet", "ceruza", "könyv", "kulcs","óra", "telefon", "tükör","számítógép", "egér", "klaviatúra", "képernyő", "hűtő", "tűzhely", "kanapé","gyümölcs", "zöldség", "kenyér", "tej", "víz", "kávé", "cukor", "só", "bors", "hús","hal", "tojás", "sajt", "vaj", "lekvár", "méz", "csokoládé", "palacsinta", "pogácsa", "kalács","város", "falu", "utca", "tér", "park", "erdő", "hegy", "tó", "folyó", "tenger"];
+            string randomWord = words[randomNumber];
+            bool runGame = true;
+            Console.Write($"{life}");
+            
+            for (int a = 0; a < heartCounter; a++)
+            {
+                Console.Write($" {heart}");
+                lineNullLength = lineNullLength + 2;
+            }
+            
+            Console.WriteLine("");
+            
+            for (int a = 0; a < words[randomNumber].Length; a++)
+            {
+                Console.Write("_ ");
+                lineOneLength = lineOneLength + 2;
+            }
+            
+            while (runGame)
+            {
+                bool insideOrNot = false;
+                int a = 0;
+                // lineNullLength = lineNullLength - 2;
+                // Console.SetCursorPosition(lineNullLength, 0);
+                // Console.Write($" {heartLost}");
+                // Console.WriteLine("");
+                string tip = Console.ReadLine();
+                if (tip.Length != 1)
+                {
+                    Console.WriteLine("Legalább egy, de annál több betűt ne írj be.");
+                }
+                else
+                {
+                    while (insideOrNot != true && randomWord.Length != a)
+                    {
+                        if (tip[0] == randomWord[a])
+                        {
+                            insideOrNot = true;
+                            CorrectCharPrint();
+                            break;
+                        }
+                    }
+                    if (insideOrNot == false)
+                    {
+                        Console.Write("Helytelen betű");
+                        MinusHeart();
+                    }
+                }
+                
+                void CorrectCharPrint()
+                { 
+                    
+                }
+                void MinusHeart()
+                {
+                    bool insideOrNot = false;
+                    int a = 0;
+                    lineNullLength = lineNullLength - 2;
+                    Console.SetCursorPosition(lineNullLength, 0);
+                    Console.Write($" {heartLost}");
+                    Console.WriteLine("");
+                    string tip = Console.ReadLine();
+                }
+                if (heartCounter == 0)
+                {
+                    runGame = false;
+                    Console.WriteLine($"Vesztettél, a kitalálandó szó a '{words[randomNumber]}' ");
+                    Console.Write("Nyomj enter a menübelépéshez");
+                    string asd = Console.ReadLine();
+                }
+            }
+        }
     }
-
 }

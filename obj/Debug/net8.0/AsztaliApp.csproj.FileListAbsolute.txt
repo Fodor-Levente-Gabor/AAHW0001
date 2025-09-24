@@ -12,3 +12,4 @@
 /home/fodor/Documents/programming/AsztaliApp/obj/Debug/net8.0/AsztaliApp.pdb
 /home/fodor/Documents/programming/AsztaliApp/obj/Debug/net8.0/AsztaliApp.genruntimeconfig.cache
 /home/fodor/Documents/programming/AsztaliApp/obj/Debug/net8.0/ref/AsztaliApp.dll
+/home/fodor/Documents/programming/AsztaliApp/obj/Debug/net8.0/AsztaliApp.sourcelink.json
