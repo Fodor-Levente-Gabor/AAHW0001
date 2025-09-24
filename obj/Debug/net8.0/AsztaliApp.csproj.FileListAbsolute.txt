@@ -1,0 +1,14 @@
+/home/fodor/Documents/programming/AsztaliApp/bin/Debug/net8.0/AsztaliApp
+/home/fodor/Documents/programming/AsztaliApp/bin/Debug/net8.0/AsztaliApp.deps.json
+/home/fodor/Documents/programming/AsztaliApp/bin/Debug/net8.0/AsztaliApp.runtimeconfig.json
+/home/fodor/Documents/programming/AsztaliApp/bin/Debug/net8.0/AsztaliApp.dll
+/home/fodor/Documents/programming/AsztaliApp/bin/Debug/net8.0/AsztaliApp.pdb
+/home/fodor/Documents/programming/AsztaliApp/obj/Debug/net8.0/AsztaliApp.GeneratedMSBuildEditorConfig.editorconfig
+/home/fodor/Documents/programming/AsztaliApp/obj/Debug/net8.0/AsztaliApp.AssemblyInfoInputs.cache
+/home/fodor/Documents/programming/AsztaliApp/obj/Debug/net8.0/AsztaliApp.AssemblyInfo.cs
+/home/fodor/Documents/programming/AsztaliApp/obj/Debug/net8.0/AsztaliApp.csproj.CoreCompileInputs.cache
+/home/fodor/Documents/programming/AsztaliApp/obj/Debug/net8.0/AsztaliApp.dll
+/home/fodor/Documents/programming/AsztaliApp/obj/Debug/net8.0/refint/AsztaliApp.dll
+/home/fodor/Documents/programming/AsztaliApp/obj/Debug/net8.0/AsztaliApp.pdb
+/home/fodor/Documents/programming/AsztaliApp/obj/Debug/net8.0/AsztaliApp.genruntimeconfig.cache
+/home/fodor/Documents/programming/AsztaliApp/obj/Debug/net8.0/ref/AsztaliApp.dll
