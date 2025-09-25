@@ -96,7 +96,6 @@ namespace GallowsGAme
             int heartCounter = 10;
             Random randomGenerator = new Random();
             int randomNumber = randomGenerator.Next(1, 50);
-            
             string[] words = ["asztal", "szék", "lámpa", "ajtó", "ablak", "toll", "füzet", "ceruza", "könyv", "kulcs","óra", "telefon", "tükör","számítógép", "egér", "klaviatúra", "képernyő", "hűtő", "tűzhely", "kanapé","gyümölcs", "zöldség", "kenyér", "tej", "víz", "kávé", "cukor", "só", "bors", "hús","hal", "tojás", "sajt", "vaj", "lekvár", "méz", "csokoládé", "palacsinta", "pogácsa", "kalács","város", "falu", "utca", "tér", "park", "erdő", "hegy", "tó", "folyó", "tenger"];
             string randomWord = words[randomNumber];
             bool runGame = true;
@@ -118,19 +117,22 @@ namespace GallowsGAme
             
             while (runGame)
             {
-                bool insideOrNot = false;
+                Console.CursorVisible = true;
                 int a = 0;
                 // lineNullLength = lineNullLength - 2;
                 // Console.SetCursorPosition(lineNullLength, 0);
                 // Console.Write($" {heartLost}");
                 // Console.WriteLine("");
+                tipDraw();
                 string tip = Console.ReadLine();
                 if (tip.Length != 1)
                 {
-                    Console.WriteLine("Legalább egy, de annál több betűt ne írj be.");
+                    invalidInput();
                 }
                 else
                 {
+                    bool insideOrNot = false;
+                    a = 0;
                     while (insideOrNot != true && randomWord.Length != a)
                     {
                         if (tip[0] == randomWord[a])
@@ -139,34 +141,57 @@ namespace GallowsGAme
                             CorrectCharPrint();
                             break;
                         }
+                        a++;
                     }
                     if (insideOrNot == false)
                     {
-                        Console.Write("Helytelen betű");
                         MinusHeart();
                     }
                 }
                 
                 void CorrectCharPrint()
-                { 
+                {
                     
                 }
                 void MinusHeart()
                 {
-                    bool insideOrNot = false;
-                    int a = 0;
+                    heartCounter--;
                     lineNullLength = lineNullLength - 2;
                     Console.SetCursorPosition(lineNullLength, 0);
                     Console.Write($" {heartLost}");
-                    Console.WriteLine("");
-                    string tip = Console.ReadLine();
                 }
-                if (heartCounter == 0)
+                void invalidInput() { 
+                    Console.CursorVisible = false;
+                    Console.SetCursorPosition(0, 3);
+                    for (int b = 0; b < 44; b++)
+                    {
+                        Console.Write(" ");
+                    }
+                    Console.SetCursorPosition(0, 3);
+                    Console.Write("Legalább egy, de annál több betűt ne írj be.");
+                    Thread.Sleep(2000);
+                    Console.SetCursorPosition(0, 3);
+                    for (int b = 0; b < 44; b++)
+                    {
+                        Console.Write(" ");
+                    }
+                    Console.SetCursorPosition(0, 3);
+                    Console.CursorVisible = true;
+                }
+                void tipDraw() 
+                {
+                    Console.SetCursorPosition(0, 3);
+                    for (int b = 0; b < 44; b++)
+                    {
+                        Console.Write(" ");
+                    }
+                    Console.SetCursorPosition(0, 3);
+                    Console.Write("Tipp: ");
+                    Console.SetCursorPosition(6, 3);
+                }
+                if (heartCounter == 0) 
                 {
                     runGame = false;
-                    Console.WriteLine($"Vesztettél, a kitalálandó szó a '{words[randomNumber]}' ");
-                    Console.Write("Nyomj enter a menübelépéshez");
-                    string asd = Console.ReadLine();
                 }
             }
         }

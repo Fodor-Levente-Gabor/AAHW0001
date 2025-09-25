@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AsztaliApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e541adbb1ea3d1875e5390ec3b0837bf9ea62912")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8b053a5166ebbd776686fc34e7b6c073ae038882")]
 [assembly: System.Reflection.AssemblyProductAttribute("AsztaliApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AsztaliApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
